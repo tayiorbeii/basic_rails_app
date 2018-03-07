@@ -1,10 +1,14 @@
 <h1>Albums</h1>
 
-<%= simple_form_for @album do |f| %>
+<% if flash[:error].present? %>
+  <%= flash[:error] %>
+<% end %>
+
+<%= simple_form_for Album.new do |f| %>
   <%= f.input :title %>
   <%= f.input :artist %>
   <br />
   <%= f.submit "Submit" %>
 <% end %>
 
-<h2><%= @album.inspect %></h2>
+<h2><%= @album.artist %> - <%= @album.title %></h2>
